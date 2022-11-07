@@ -27,6 +27,7 @@ public class Time {
 	private String complemento;
 	private String cidade;
 	private String uf;
+	private String url;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="times_id")
@@ -123,6 +124,14 @@ public class Time {
 
 	public void setAtletas(List<Atleta> atletas) {
 		this.atletas = atletas;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 }

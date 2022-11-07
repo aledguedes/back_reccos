@@ -21,10 +21,10 @@ public class Liga {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
-	private LocalDate dt_inicio = LocalDate.now();
-	private LocalDate dt_fim = LocalDate.now();
-	private String type_liga;
-	private String campo;
+	private LocalDate dt_start;
+	private LocalDate dt_end;
+	private String system;
+	private String mode;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ligas_id")
@@ -55,36 +55,36 @@ public class Liga {
 		this.name = name;
 	}
 
-	public LocalDate getDt_inicio() {
-		return dt_inicio;
+	public LocalDate getDt_start() {
+		return dt_start;
 	}
 
-	public void setDt_inicio(LocalDate dt_inicio) {
-		this.dt_inicio = dt_inicio;
+	public void setDt_start(LocalDate dt_start) {
+		this.dt_start = dt_start;
 	}
 
-	public LocalDate getDt_fim() {
-		return dt_fim;
+	public LocalDate getDt_end() {
+		return dt_end;
 	}
 
-	public void setDt_fim(LocalDate dt_fim) {
-		this.dt_fim = dt_fim;
+	public void setDt_end(LocalDate dt_end) {
+		this.dt_end = dt_end;
 	}
 
-	public String getType_liga() {
-		return type_liga;
+	public String getSystem() {
+		return system;
 	}
 
-	public void setType_liga(String type_liga) {
-		this.type_liga = type_liga;
+	public void setSystem(String system) {
+		this.system = system;
 	}
 
-	public String getCampo() {
-		return campo;
+	public String getMode() {
+		return mode;
 	}
 
-	public void setCampo(String campo) {
-		this.campo = campo;
+	public void setMode(String mode) {
+		this.mode = mode;
 	}
 
 	public List<Time> getTimes() {
