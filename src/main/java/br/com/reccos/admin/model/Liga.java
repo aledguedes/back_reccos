@@ -1,16 +1,15 @@
 package br.com.reccos.admin.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +24,7 @@ public class Liga {
 	private LocalDate dt_end;
 	private String system;
 	private String mode;
+	private Boolean status;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ligas_id")
@@ -101,6 +101,14 @@ public class Liga {
 
 	public void setArbitros(List<Arbitro> arbitros) {
 		this.arbitros = arbitros;
+	}
+
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
 	}
 
 }

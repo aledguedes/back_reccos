@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "atletas")
+@Table(name = "atleta")
 public class Atleta {
 
 	@Id
@@ -16,6 +16,7 @@ public class Atleta {
 	private String nome;
 	private String apelido;
 	private String posicao;
+	private Boolean status;
 
 	public Atleta() {
 		super();
@@ -53,4 +54,14 @@ public class Atleta {
 	public void setPosicao(String posicao) {
 		this.posicao = posicao;
 	}
+
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+	
+	
 }

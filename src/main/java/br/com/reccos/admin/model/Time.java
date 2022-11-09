@@ -1,5 +1,6 @@
 package br.com.reccos.admin.model;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "times")
+@Table(name = "time")
 public class Time {
 
 	@Id
@@ -20,6 +21,7 @@ public class Time {
 	private Integer id;
 	private String nome;
 	private String apelido;
+	private String presidente;
 	private String cep;
 	private String logradouro;
 	private Integer numero;
@@ -28,9 +30,13 @@ public class Time {
 	private String cidade;
 	private String uf;
 	private String url;
-	
+	private String foto_estadio;
+	private String telefone;
+	private Boolean status;
+	private LocalDate dt_nascimento;
+
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="times_id")
+	@JoinColumn(name = "times_id")
 	private List<Atleta> atletas;
 
 	public Time() {
@@ -60,6 +66,14 @@ public class Time {
 
 	public void setApelido(String apelido) {
 		this.apelido = apelido;
+	}
+
+	public String getPresidente() {
+		return presidente;
+	}
+
+	public void setPresidente(String presidente) {
+		this.presidente = presidente;
 	}
 
 	public String getCep() {
@@ -118,6 +132,38 @@ public class Time {
 		this.uf = uf;
 	}
 
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+
+	public String getfoto_estadio() {
+		return foto_estadio;
+	}
+
+	public void setfoto_estadio(String foto_estadio) {
+		this.foto_estadio = foto_estadio;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
 	public List<Atleta> getAtletas() {
 		return atletas;
 	}
@@ -126,12 +172,12 @@ public class Time {
 		this.atletas = atletas;
 	}
 
-	public String getUrl() {
-		return url;
+	public LocalDate getDt_nascimento() {
+		return dt_nascimento;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setDt_nascimento(LocalDate dt_nascimento) {
+		this.dt_nascimento = dt_nascimento;
 	}
 
 }
