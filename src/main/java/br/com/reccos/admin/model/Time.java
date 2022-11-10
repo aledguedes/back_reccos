@@ -19,9 +19,9 @@ public class Time {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String nome;
-	private String apelido;
-	private String presidente;
+	private String name;
+	private String initials;
+	private String president;
 	private String cep;
 	private String logradouro;
 	private Integer numero;
@@ -29,20 +29,16 @@ public class Time {
 	private String complemento;
 	private String cidade;
 	private String uf;
-	private String url;
-	private String foto_estadio;
-	private String telefone;
+	private String img_scudo;
+	private String img_stadium;
+	private String phone;
 	private Boolean status;
+	private String surname;
 	private LocalDate dt_nascimento;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "times_id")
 	private List<Atleta> atletas;
-
-	public Time() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	public Integer getId() {
 		return id;
@@ -52,28 +48,28 @@ public class Time {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getApelido() {
-		return apelido;
+	public String getInitials() {
+		return initials;
 	}
 
-	public void setApelido(String apelido) {
-		this.apelido = apelido;
+	public void setInitials(String initials) {
+		this.initials = initials;
 	}
 
-	public String getPresidente() {
-		return presidente;
+	public String getPresident() {
+		return president;
 	}
 
-	public void setPresidente(String presidente) {
-		this.presidente = presidente;
+	public void setPresident(String president) {
+		this.president = president;
 	}
 
 	public String getCep() {
@@ -132,12 +128,28 @@ public class Time {
 		this.uf = uf;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getImg_scudo() {
+		return img_scudo;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setImg_scudo(String img_scudo) {
+		this.img_scudo = img_scudo;
+	}
+
+	public String getImg_stadium() {
+		return img_stadium;
+	}
+
+	public void setImg_stadium(String img_stadium) {
+		this.img_stadium = img_stadium;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public Boolean getStatus() {
@@ -148,20 +160,12 @@ public class Time {
 		this.status = status;
 	}
 
-	public String getfoto_estadio() {
-		return foto_estadio;
+	public LocalDate getDt_nascimento() {
+		return dt_nascimento;
 	}
 
-	public void setfoto_estadio(String foto_estadio) {
-		this.foto_estadio = foto_estadio;
-	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+	public void setDt_nascimento(LocalDate dt_nascimento) {
+		this.dt_nascimento = dt_nascimento;
 	}
 
 	public List<Atleta> getAtletas() {
@@ -172,12 +176,12 @@ public class Time {
 		this.atletas = atletas;
 	}
 
-	public LocalDate getDt_nascimento() {
-		return dt_nascimento;
+	public String getSurname() {
+		return surname;
 	}
 
-	public void setDt_nascimento(LocalDate dt_nascimento) {
-		this.dt_nascimento = dt_nascimento;
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
 }

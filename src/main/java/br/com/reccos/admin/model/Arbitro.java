@@ -14,13 +14,8 @@ public class Arbitro {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	private String apelido;
+	private String surname;
 	private Boolean status;
-
-	public Arbitro() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	public Integer getId() {
 		return id;
@@ -38,12 +33,12 @@ public class Arbitro {
 		this.nome = nome;
 	}
 
-	public String getApelido() {
-		return apelido;
+	public String getSurname() {
+		return surname;
 	}
 
-	public void setApelido(String apelido) {
-		this.apelido = apelido;
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
 	public Boolean getStatus() {
@@ -53,7 +48,5 @@ public class Arbitro {
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
-	
-	
 
 }

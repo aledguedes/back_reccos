@@ -13,10 +13,12 @@ public class Atleta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String nome;
-	private String apelido;
-	private String posicao;
+	private String name;
+	private String surname;
+	private Integer position;
 	private Boolean status;
+	private String cpf;
+	private String rg;
 
 	public Atleta() {
 		super();
@@ -31,28 +33,28 @@ public class Atleta {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getApelido() {
-		return apelido;
+	public String getSurname() {
+		return surname;
 	}
 
-	public void setApelido(String apelido) {
-		this.apelido = apelido;
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
-	public String getPosicao() {
-		return posicao;
+	public Integer getPosition() {
+		return position;
 	}
 
-	public void setPosicao(String posicao) {
-		this.posicao = posicao;
+	public void setPosition(Integer position) {
+		this.position = position;
 	}
 
 	public Boolean getStatus() {
@@ -62,6 +64,21 @@ public class Atleta {
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
-	
-	
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+
 }
