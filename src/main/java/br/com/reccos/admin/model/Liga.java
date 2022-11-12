@@ -26,9 +26,9 @@ public class Liga {
 	private String mode;
 	private Boolean status;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ligas_id")
-	private List<Time> times;
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "ligas_id")
+//	private List<Time> times;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ligas_id")
@@ -87,13 +87,13 @@ public class Liga {
 		this.mode = mode;
 	}
 
-	public List<Time> getTimes() {
-		return times;
-	}
-
-	public void setTimes(List<Time> times) {
-		this.times = times;
-	}
+//	public List<Time> getTimes() {
+//		return times;
+//	}
+//
+//	public void setTimes(List<Time> times) {
+//		this.times = times;
+//	}
 
 	public List<Arbitro> getArbitros() {
 		return arbitros;
