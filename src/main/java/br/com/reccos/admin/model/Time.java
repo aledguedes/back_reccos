@@ -1,13 +1,18 @@
 package br.com.reccos.admin.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "time")
@@ -33,12 +38,12 @@ public class Time {
 	private String surname;
 	private LocalDate dt_nascimento;
 
-//	@OneToMany(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "times_id")
-//	private List<Atleta> atletas;
-
 	@ManyToOne
 	private Liga liga;
+
+	@OneToMany(mappedBy = "time", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("time")
+	private List<Contract> contratos;
 
 	public Integer getId() {
 		return id;
@@ -168,13 +173,13 @@ public class Time {
 		this.dt_nascimento = dt_nascimento;
 	}
 
-//	public List<Atleta> getAtletas() {
-//		return atletas;
-//	}
+	public List<Contract> getContratos() {
+		return contratos;
+	}
 
-//	public void setAtletas(List<Atleta> atletas) {
-//		this.atletas = atletas;
-//	}
+	public void setContratos(List<Contract> contratos) {
+		this.contratos = contratos;
+	}
 
 	public String getSurname() {
 		return surname;
