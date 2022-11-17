@@ -4,7 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "atleta")
@@ -19,6 +23,11 @@ public class Atleta {
 	private Boolean status;
 	private String cpf;
 	private String rg;
+	
+	@ManyToOne
+	@JoinColumn(name = "times_id")
+	@JsonIgnoreProperties({"contratos", "liga"})
+	private Time time;
 
 	public Atleta() {
 		super();
@@ -79,6 +88,14 @@ public class Atleta {
 
 	public void setRg(String rg) {
 		this.rg = rg;
+	}
+
+	public Time getTime() {
+		return time;
+	}
+
+	public void setTime(Time time) {
+		this.time = time;
 	}
 
 }
