@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "contrato")
 public class Contract {
@@ -19,13 +21,16 @@ public class Contract {
 	private Integer id;
 	private LocalDate dt_start_contract;
 	private LocalDate dt_end_contract;
+	private Boolean status;
 
 	@ManyToOne
 	@JoinColumn(name = "time_id")
+	@JsonIgnoreProperties({"liga", "contratos"})
 	private Time time;
 
 	@ManyToOne
 	@JoinColumn(name = "atleta_id")
+	@JsonIgnoreProperties("time")
 	private Atleta atleta;
 
 	public Contract() {
@@ -71,6 +76,14 @@ public class Contract {
 
 	public void setAtleta(Atleta atleta) {
 		this.atleta = atleta;
+	}
+
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
 	}
 
 }

@@ -23,6 +23,7 @@ public class Atleta {
 	private Boolean status;
 	private String cpf;
 	private String rg;
+	private String img_player;
 	
 	@ManyToOne
 	@JoinColumn(name = "times_id")
@@ -90,6 +91,14 @@ public class Atleta {
 		this.rg = rg;
 	}
 
+	public String getImg_player() {
+		return img_player;
+	}
+
+	public void setImg_player(String img_player) {
+		this.img_player = img_player;
+	}
+
 	public Time getTime() {
 		return time;
 	}
@@ -97,5 +106,7 @@ public class Atleta {
 	public void setTime(Time time) {
 		this.time = time;
 	}
+
+	
 
 }

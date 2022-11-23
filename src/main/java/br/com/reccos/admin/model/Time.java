@@ -49,10 +49,6 @@ public class Time {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -165,24 +161,20 @@ public class Time {
 		this.status = status;
 	}
 
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
 	public LocalDate getDt_nascimento() {
 		return dt_nascimento;
 	}
 
 	public void setDt_nascimento(LocalDate dt_nascimento) {
 		this.dt_nascimento = dt_nascimento;
-	}
-
-	public List<Contract> getContratos() {
-		return contratos;
-	}
-
-	public void setContratos(List<Contract> contratos) {
-		this.contratos = contratos;
-	}
-
-	public String getSurname() {
-		return surname;
 	}
 
 	public Liga getLiga() {
@@ -193,8 +185,17 @@ public class Time {
 		this.liga = liga;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public List<Contract> getContratos() {
+		return contratos;
 	}
 
+	public void setContratos(List<Contract> contratos) {
+		this.contratos = contratos;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	
 }

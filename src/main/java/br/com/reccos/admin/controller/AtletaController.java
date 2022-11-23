@@ -13,11 +13,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import br.com.reccos.admin.dto.PathDTO;
 import br.com.reccos.admin.model.Atleta;
 import br.com.reccos.admin.service.AtletaService;
+import br.com.reccos.admin.service.UploadService;
 
 @RestController
 @RequestMapping(value = "/atletas")
@@ -26,6 +30,9 @@ public class AtletaController {
 
 	@Autowired
 	private AtletaService service;
+	
+	@Autowired
+	private UploadService uploadService;
 	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Atleta> listById(@PathVariable Integer id) {
@@ -44,6 +51,17 @@ public class AtletaController {
 		Atleta obj = service.create(atleta);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
+	}
+	
+	@PostMapping("/upload")
+	public ResponseEntity<PathDTO> uploadFoto(@RequestParam(name = "file") MultipartFile file){
+		String path = uploadService.uploadFile(file);
+		if (path != null) {
+			PathDTO pathDto = new PathDTO();
+			pathDto.setPathToFile(path);
+			return ResponseEntity.status(201).body(pathDto);
+		}
+		return ResponseEntity.badRequest().build();
 	}
 	
 	@PutMapping(value = "/{id}")
