@@ -32,6 +32,12 @@ public class LigaController {
 		return ResponseEntity.ok().body(liga);
 	}
 	
+	@GetMapping(value = "/status/{status}")
+	public ResponseEntity<List<Liga>> listByStatus(@PathVariable Boolean status) {
+		List<Liga> list = service.listByStatus(status);
+		return ResponseEntity.ok().body(list);
+	}
+	
 	@GetMapping
 	public ResponseEntity<List<Liga>> listarTodos(){
 		List<Liga> list = service.listAll();

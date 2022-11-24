@@ -33,6 +33,12 @@ public class TimeController {
 		return ResponseEntity.ok().body(time);
 	}
 	
+	@GetMapping(value = "/status/{status}")
+	public ResponseEntity<List<Time>> listByStatus(@PathVariable Boolean status) {
+		List<Time> list = service.listByStatus(status);
+		return ResponseEntity.ok().body(list);
+	}
+	
 	@GetMapping
 	public ResponseEntity<List<Time>> listarTodos(){
 		List<Time> list = service.listAll();

@@ -24,6 +24,11 @@ public class LigaService {
 		return repository.findAll();
 	}
 	
+	public List<Liga> listByStatus(boolean status) {
+		List<Liga> obj = repository.findByStatus(status);
+		return obj;
+	}
+	
 	public Liga create(Liga obj) {
 		obj.setId(null);
 		return repository.save(obj);

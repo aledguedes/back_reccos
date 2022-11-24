@@ -40,6 +40,12 @@ public class AtletaController {
 		return ResponseEntity.ok().body(atleta);
 	}
 	
+	@GetMapping(value = "/status/{status}")
+	public ResponseEntity<List<Atleta>> listByStatus(@PathVariable Boolean status) {
+		List<Atleta> list = service.listByStatus(status);
+		return ResponseEntity.ok().body(list);
+	}
+	
 	@GetMapping
 	public ResponseEntity<List<Atleta>> listarTodos(){
 		List<Atleta> list = service.listAll();

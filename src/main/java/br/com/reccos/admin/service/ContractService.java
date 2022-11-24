@@ -21,7 +21,26 @@ public class ContractService {
 		return obj.orElseThrow(() -> new ObjectnotFoundException("Erro! Objeto não encontrado! ID " + id));
 	}
 	
+	public List<Contract> listByStatus(boolean status) {
+		List<Contract> obj = repository.findByStatus(status);
+		return obj;
+	}
+	
 	public List<Contract> listAll() {
 		return repository.findAll();
+	}
+	
+	public Contract create(Contract obj) {
+		obj.setId(null);
+		return repository.save(obj);
+	}
+	
+	public Contract update(Integer id, Contract obj) {
+		obj.setId(id);
+		return repository.save(obj);
+	}
+	
+	public void delete(Integer id) {
+		repository.deleteById(id);
 	}
 }

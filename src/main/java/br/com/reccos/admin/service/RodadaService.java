@@ -20,6 +20,11 @@ public class RodadaService {
 		Optional<Rodada> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ObjectnotFoundException("Erro! Objeto não encontrado! ID " + id));
 	}
+	
+	public List<Rodada> listByStatus(boolean status) {
+		List<Rodada> obj = repository.findByStatus(status);
+		return obj;
+	}
 
 	public List<Rodada> listAll() {
 		return repository.findAll();

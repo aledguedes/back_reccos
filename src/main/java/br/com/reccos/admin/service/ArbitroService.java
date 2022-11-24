@@ -25,6 +25,11 @@ public class ArbitroService {
 		return repository.findAll();
 	}
 	
+	public List<Arbitro> listByStatus(boolean status) {
+		List<Arbitro> obj = repository.findByStatus(status);
+		return obj;
+	}
+	
 	public Arbitro create(Arbitro obj) {
 		obj.setId(null);
 		return repository.save(obj);

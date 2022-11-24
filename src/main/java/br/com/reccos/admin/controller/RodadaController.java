@@ -33,6 +33,12 @@ public class RodadaController {
 		return ResponseEntity.ok().body(obj);
 	}
 	
+	@GetMapping(value = "/status/{status}")
+	public ResponseEntity<List<Rodada>> listByStatus(@PathVariable Boolean status) {
+		List<Rodada> list = service.listByStatus(status);
+		return ResponseEntity.ok().body(list);
+	}
+	
 	@GetMapping
 	public ResponseEntity<List<Rodada>> listarTodos(){
 		List<Rodada> list = service.listAll();

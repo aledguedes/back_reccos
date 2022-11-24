@@ -25,6 +25,11 @@ public class AtletaService {
 		return repository.findAll();
 	}
 	
+	public List<Atleta> listByStatus(boolean status) {
+		List<Atleta> obj = repository.findByStatus(status);
+		return obj;
+	}
+	
 	public Atleta create(Atleta obj) {
 		obj.setId(null);
 		return repository.save(obj);

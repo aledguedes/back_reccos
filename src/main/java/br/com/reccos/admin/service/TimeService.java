@@ -20,6 +20,11 @@ public class TimeService {
 		Optional<Time> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ObjectnotFoundException("Erro! Objeto não encontrado! ID " + id));
 	}
+	
+	public List<Time> listByStatus(boolean status) {
+		List<Time> obj = repository.findByStatus(status);
+		return obj;
+	}
 
 	public List<Time> listAll() {
 		return repository.findAll();

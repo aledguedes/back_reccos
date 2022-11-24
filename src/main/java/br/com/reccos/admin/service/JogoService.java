@@ -24,6 +24,11 @@ public class JogoService {
 	public List<Jogo> listAll() {
 		return repository.findAll();
 	}
+	
+	public List<Jogo> listByStatus(boolean status) {
+		List<Jogo> obj = repository.findByStatus(status);
+		return obj;
+	}
 
 	public Jogo create(Jogo jogo) {
 		jogo.setId_jogo(null);

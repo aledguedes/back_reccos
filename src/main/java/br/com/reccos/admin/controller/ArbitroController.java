@@ -33,6 +33,12 @@ public class ArbitroController {
 		return ResponseEntity.ok().body(arbitro);
 	}
 	
+	@GetMapping(value = "/status/{status}")
+	public ResponseEntity<List<Arbitro>> listByStatus(@PathVariable Boolean status) {
+		List<Arbitro> list = service.listByStatus(status);
+		return ResponseEntity.ok().body(list);
+	}
+	
 	@GetMapping
 	public ResponseEntity<List<Arbitro>> listarTodos(){
 		List<Arbitro> list = service.listAll();
