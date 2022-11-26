@@ -18,18 +18,9 @@ public class Liga {
 	private String name;
 	private LocalDate dt_start;
 	private LocalDate dt_end;
-	private String system;
-	private String mode;
+	private String league_system;
+	private String league_mode;
 	private Boolean status;
-
-//	@OneToMany(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "ligas_id")
-//	private List<Time> times
-
-	public Liga() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	public Integer getId() {
 		return id;
@@ -63,20 +54,20 @@ public class Liga {
 		this.dt_end = dt_end;
 	}
 
-	public String getSystem() {
-		return system;
+	public String getLeague_system() {
+		return league_system;
 	}
 
-	public void setSystem(String system) {
-		this.system = system;
+	public void setLeague_system(String league_system) {
+		this.league_system = league_system;
 	}
 
-	public String getMode() {
-		return mode;
+	public String getLeague_mode() {
+		return league_mode;
 	}
 
-	public void setMode(String mode) {
-		this.mode = mode;
+	public void setLeague_mode(String league_mode) {
+		this.league_mode = league_mode;
 	}
 
 	public Boolean getStatus() {
@@ -86,7 +77,5 @@ public class Liga {
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
-
-	
 
 }
